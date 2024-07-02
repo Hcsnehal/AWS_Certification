@@ -1,0 +1,196 @@
+.........lambda..........
+
+*AWS lambda is a compute service that lets your code without provisioning or managening servers.
+
+*compute:perform calcution,process data and execute instruction.
+
+"compute is the fundamental concept in information technology that underpins the opration of all 
+ computer system and services."
+
+*with aws lambda we can run code for virtually any type of application or backend service all with zero administration.
+
+*aws lambda manages all administration it manages :
+      1)provisioning and capacity of the compute fleet that offers a balance of memory ,CPU, network 
+        and other resources.
+      2)server and os maintance.
+      3)high availability and automatic scaling.
+      4)monitoring fleet health.
+      5)applying security patches.
+      6)deploying your code.
+      7)monitoring and logging your lambda functions.
+      8)AWS lambda runs your code on a high availability compute infrastructure.
+
+ *AWS lambda execute our code only when needed and scales Automatically,from a few request per day.
+ to thousand per second.
+
+ *you pay only for the compute time you consume.
+
+ *no charge when our code is not running. 
+
+ *aws lambda supports the languages:node.js,java,powershell,c#,ruby,python and go.
+      and the service can run the code on your behalf.
+
+ *lifecycle of aws lambda:
+        typically,the lifecycle for an aws lambda based application includes authoring code
+        (writing code) deploying code to aws lambda and the monitoring and troubleshooting.
+
+
+  *Monitoring:
+        Monitoring in aws refers to the process of tracking and observing the performance,
+        health and usage of various aws resources and applaction running on the aws infrastructure.
+  
+  *troubleshooting:
+        the ability to identify and resolve problems with aws services and infrastructure.
+
+  *in lambda we cannot log into compute instances or customize the oprating system or language runtime.
+
+  *if you want to manage your own compute ,you can use EC2 or elastic instaces.
+
+  *how lambda works :
+         1)first uplode your code to lambda in one or more lambda function.
+         2)aws lambda will then execute the code in your behalf.
+         3)after the code is invoke ,lambda automatically take care of 
+           provisioning and managing the required servers.
+
+  *AWS lambda vs Ec2 instances :
+  
+   1)AWS lambda:
+    -aws lambda is the platform as a service.
+    -it supports only limited languages like node js,
+     python,java,c#,ruby,go,powershell.   
+    -write your code and push it into aws lambda.
+    -you cannot log into compute instances,choose 
+     customize os or language platform.
+
+  2)Ec2 instances:
+   -infrastructure-as-a service.
+   -no environment restriction ,you can run any code or language.
+   -for the first time in ec2, you have to choose the OS and install
+    all the software required and then push your code to ec2.
+   -you can select varity of os instaces types,network and security patches,
+    RAM and CPU etc.
+   -pay per second,hourly.
+
+  *important terms used in lambda:
+
+  1)function: A function is a resource that you can invoke to run your code in aws lambda
+              a function has code that processes events, and a runtime that passes request
+              and response between lamnda and the function code.
+
+  2)runtime:
+             lambda runtime allow function in different languages to run in the same base execution environ                  
+             ment. the runtime sits in between the lambda service nad your function code,replying invocation
+             events, context information and responses between the two.
+
+  3)Event:
+            IS a JSON formatted document taht contain data for the function to process.
+
+  4)Event sources/Trigger:
+             An AWS service such as Amazon SNS,or a custom service,that triggers your function
+             and executes its logic.
+
+ 5)Downstream resoures: 
+             An AWS service, such as dynamodb table or S3 bucket, that your lambda function calls
+             once it is triggered.
+
+6)Concurrency:
+            no. of request that your function is serviving in any given time.
+ 
+*When lambda triggers:
+        -you can use aws lambda to run your code in response to :
+        -events such as changes to data in an amazon s3 bucket or an amazon dynamodb table.
+        -To run your code in response to Http request using amazon API gateway.
+        -with these capabilities you can use lambda to easily build data processing 
+         triggers for aws service like amazon s3 and amazon dynamodb.
+                         process streaming data stored in kinesis or create your own backend
+         that oprates aws scale performance and security.
+
+        -one lambda function can trigger another lambda function.
+
+ *example of S3:
+  1)The user create an object in a bucket.
+  2)amazon s3 detects the object created event.
+  3)amazon s3 invoke our lambda functions using the permission provides by the execution role.
+  4)amazon s3 knows which lambda function to invoke based on the event sources mapping that is
+    stored in the bucket notification configuration.  
+
+ *AWS lambda function configuration:
+             -a lambda function consist of code and associated dependencies.
+             -in addition,a lambda function also has configuration information 
+              associated with it.
+             -initially,you specify the configuration information when  you create a lambda function.
+             -lambda provides an API for you to update som eof the configuration data.
+             
+ *lambda function configuration information includes the following key elements:
+              1)compute resource that you need you only specify the amount of memory
+                you want to allocate from your lambda function.
+              2)aws lambda allocates,cpu power proportional to the memory by using the same ratio 
+                as a general purpose amazon ec2 instance type ,such as an m3 type.
+              3)you can update the configuration and request additional memory in 64mb
+                increments from 128mb to 3008mb.
+              4)function larger than 1536mb are allocates multiple cpu threads.
+
+*Maximum execution timeout:
+     1) you pay for the aws resources that are used to run your lambda function.
+     2)to prevent your lambda function from running indefinetly, you can specify a timeout.
+     3)when a specified timeout is reached, aws lambda termination your lambda function.
+     4)default is 3sec. and maximum is 900sec(15 min).      
+*AWS lambda function -services it can access-
+ 
+ *lambda function can access:
+      1)aws services or non aws services.
+      2)aws services running in aws vpc(ex.redshift,elesticache,RDS instance).
+      3)non-aws services running on ec2 instances in an aws vpc.
+      4)aws lambda run your function code securely within a vpc by default.
+      5)however,to enable your lambda function to access resources inside your private vpc
+        you must provide additional vpc-specific configuration information that includes vpc subnet
+        and security group IDs. 
+
+*different way to invoke lambda function:
+ 1)Synchronus invoke(push)
+ 2)Asynchronus invoke (event)  
+ 3)poll-based invoke(pull based)
+
+-synchronous invoke are the most straight forward way to invoke your lambda function.
+-In these model,your functions executes immediately when you perform the lambda invoke API call.
+-Invocation flag specifies a value of 'requestResponse'.
+-you wait for the function to process the event and return a response.
+
+*here are the list of services that invoke lambda function synchronously:
+   -Elastic load balancer.
+   -Amazon cognito
+   -cloudfrount.
+   -API gateway
+   -amazon lex.
+   -kinesis data firehouse.
+
+*Asynchronus invocation :
+ 
+-for asynchronous invocation, lambda places the event in a queue and return a successs response 
+ without additional information.
+-lambda queues the event for processing and return a response immediately.
+-you can configure lambda to send an invocation record to another service like sqs,sns
+ lambda and enentbridge.
+ 
+*here are the list of services that invoke lambda function asynchronously:
+ 1)amazon S3
+ 2)Amazon SNS
+ 3)SES(simple email service)
+ 4)cloudformation
+ 5)cloudwatch logs
+ 6)cloudwatch events
+ 7)aws codecommit
+ 8)aws config
+
+*Poll-based invoke:
+The invocation model design to allow you to integrate with aws stream and queue based service
+with no code and server management lambda will poll following service on your behalf ,retrive record
+ and invoke your function.
+
+*The following are supported services:
+  1)Amazon kinesis
+  2)amazon SQS
+  3)AMazon DynamoDB stream.    
+              
+                                                             
+ 
