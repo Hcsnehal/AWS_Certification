@@ -1,0 +1,270 @@
+         IAM(identity and access management)
+what is IAM?
+  IAM is the web service that helps securely control  access to AWS resources.
+  Global service
+
+1.IAM permissions..
+
+  permission in IAM define what action the entity(user) can perform on specific resources.
+  permission are stored in JSON document. 
+  policies define permissions of the users.
+
+2.IAM policies structures
+
+ 1)version:policy language version.
+ 2)ID:an identifier for the policy(optional)
+ 3)statement:one or more statement.
+
+     statement consist of: 
+        1)SID:an identifier for the statement.
+        2)Effect:allow or denied access for the statement.
+        3)principals:account/user/role to which these policy applied to.
+        4)Action : List of actions these policy allow or denied.
+        5)resources:list of resources to which these action applied to.
+
+ *IAM identity :
+            1)an identity refers to the entity that can be authenticated and authorized
+            to interact with AWS resources.
+            
+            2)IAM identities are user,group,role.
+
+*we can create a new IAM policy in the aws management console using
+ one of the following way:
+
+    1)JSON:we can create our own json syntax.
+    2)visual editor:we can construct a new policy from scratch in the visual 
+       editor .
+    3)import :we can import a managed policy within your account and then edit the 
+                policy. customize it to our specific requirements.
+        
+
+3.  IAM password policy 
+    
+     1)allow all IAM user to change their own password.
+     2)prevent password reuse.
+     3)require user to change their password after some time.
+     
+
+4. MFA(multifactor authentication)
+     IN multifactor authentication user require to enter OTP or number sent to their device 
+     rather than username or password.
+
+     main benefit of MFA is if our password get stolen than that hacker cant get accessed to our account.
+
+  
+5. IAM roles for the service:
+
+   IAM role is the permission assigned to specific resources.
+   
+6.IAM security tools:
+
+  1)IAM credentials report:(account level)
+     - A report that list our all your account users and status of their credentials.
+
+  2)IAM access advisor:(user level)
+      - show the service permission given to the user and show  
+          when these service were last accessed.
+
+   3)Access Analyzer:
+           -IAM Access Analyzer continuously monitors your AWS resources for policies 
+            that could grant unintended or overly permissive access. It analyzes resource-based policies 
+            such as S3 bucket policies, IAM role trust policies, KMS key policies, and Lambda function policies 
+            to identify potential security risks.
+7. shared responsibility model for IAM:
+    1)AWS responsible for : 
+         -infrastructure(global network security).
+         -configuration and vulnerability analysis.
+         -compliance validation:idenfies and correct vulnerability.
+    2)user responsible for:
+          -users,groups,roles,policies management and monitoring.
+          - enable MFA
+          -change passwords.
+          -use iam to apply permissions.
+
+ #IAM user limit is 5000 per aws account you can add upto 10 users at one time.
+ #you are also limited to 300 group per aws account.
+ #you are limited to 1000 iam role under aws account.
+ #IAM user can a member of 10 group.
+ #we can assign two access key(max) to an iam user.
+ 
+ *features of iam:
+   1)shared access to your aws account.
+   2)granular permission:you can grant different permissions to different people for different resources.
+   3)secure access to aws resources for application that run on amazon ec2.
+   4)MFA
+   5)identity federation.
+   6)identity information for assurance:we can cheak log records.
+   7)PCI-DSS:payment card industries, data security standards.
+   8)free to use.
+   
+*compliance validation : 
+              fundamental and critical function that identifies and correct vulnerabilities 
+              and protect customer by ensuring that appropriate level of cardholder information
+              security are maintain.(managed by aws).
+*IAM terms:
+   1)principal:the things that do activities on resources. ex-user,application,federated user.
+   2)request.
+   3)authentication.
+   4)authorization.
+   5)actions/oprations:
+   6)resources.
+ 
+ *Environment Data: IP address,user agent,SSL enebles status,or the time of day.
+ *anonymous user:entity that interacts with a system or resources without provide
+                 any form of credentials.
+ *S3 allow request from ananomous user ,they are exception to the role.
+
+ * IAM Role:
+           1)An IAM role is a set of permissions that grant access to actions and Resources in AWS.
+           2)permissions are attach to the role ,not to an iam user or group.
+           3)A Role does not have standards long term credentials associated with it.
+           4)If a assume a Role ,temporary security credentials are created dynamically
+             and provided to the user.
+ *following entities can use role:
+         -An iam user in the same aws account.
+         -An iam user in the different aws account.
+         -A webservice offered by aws such as Ec2.
+*Key Features:
+
+1)Assumable by Principals: Roles can be assumed by IAM users, services, or applications. When assumed, they provide temporary security credentials.
+
+2)Temporary Credentials: Provide temporary credentials that expire after a specified duration, enhancing security.
+
+3)Service Access: Commonly used to grant AWS services (e.g., EC2, Lambda) permissions to perform actions on other services.
+
+4)Delegation: Enable delegation of permissions across different users and services.
+
+5)Cross-Account Access: Roles can be assumed by entities in other AWS accounts, facilitating secure cross-account access.
+
+*Example Use Cases:
+
+ 1)EC2 Instance Roles: Grant an EC2 instance permissions to access other AWS 
+   services like S3, DynamoDB, etc.
+
+ 2) Lambda Execution Roles: Define what a Lambda function can access or perform.
+
+ 3) Cross-Account Access: Allow users or services in one AWS account to assume a 
+                          role in another account.
+ 
+ *policies are the permissions.
+
+ A)identity based policy:Identity-based policies are permissions policies that you attach to IAM identities such as users, groups, and roles. These policies specify what actions those identities are allowed or denied to perform on which resources.
+
+*use cases :
+   1) User Permissions: Granting or restricting access to specific AWS services or actions for individual IAM users.
+
+2)Group Permissions: Assigning permissions to groups of users to simplify management. All users in the group inherit the permissions of the group.
+
+3)Role Permissions: Defining permissions for IAM roles, which can then be assumed by users, applications, or services to perform specific tasks.
+
+*How It Works:
+
+-Identity-based policies define the allowed and denied actions on resources.
+
+-These policies are written in JSON and include statements that specify effect 
+(Allow or Deny), actions (e.g., s3:ListBucket), resources (e.g., specific S3 buckets), and conditions (optional).
+
+
+B)Resources-Based policy:
+      Resource-based policies are attached directly to AWS resources, specifying which principals
+     (users,roles,accounts) are allowed or denied actions on those resources.
+
+*Use Cases:
+
+1)S3 Bucket Policies: Controlling access to S3 buckets by defining who can perform actions like uploading or downloading objects.
+
+2)SNS Topic Policies: Specifying who can publish or subscribe to messages on SNS topics.
+
+3)SQS Queue Policies: Defining who can send messages to or receive messages from SQS queues.
+
+*How It Works:
+
+1)Resource-based policies are also written in JSON and attached directly to the resource.
+
+2)These policies specify the principal (the entity requesting access), actions, resources,
+ and conditions.  
+
+* following services support resources based policy :
+       1)S3
+       2)SNS
+       3)SQS
+       4)Amazon glacier vault.
+
+*Both types of policies can be used together to achieve robust access control:
+
+1)IAM Role with Identity-Based Policies: Define what actions an entity can perform.
+
+2)Resource-Based Policies: Further restrict or allow access to specific resources, 
+adding another layer of control. 
+
+*In identity based policy there is no use of principal.
+*used of principal in resourced based policy.
+
+*difference between IAM role and resources based policy is :
+        -suppose their are two account ,account-A(user),and Account-B(resources)
+        -user account=trusted account.
+        -a account where resources is we say that its trusting account.
+
+*difference between resources based policy and iam role is :
+          
+     1)IAM role : user want to access object or perform any opration on s3 bucket 
+                  then we can assign role to a user or on s3 bucket,we can assign role 
+                  to both s3 bucket and user but in case of Role what happend user have to
+                  left  his role and use the role only that assign on s3 bucket.
+                  thats the limitation of Role.
+    2)resourced-based policy:
+                  -In case of resourced based policy user continuous to have access to resources
+                  in the trusted account at the same time as he or has access to the resources
+                  in the trusting account.
+                  
+                  - This is useful for task such as copying information to or from the shared resources
+                    in the other account.
+                  
+
+*IAM Role Delegation:
+          1) Delegation is the granting of permission to someone to allow access to 
+           resources that you control.
+           
+          2)Delegation involves the setting up the trust between the account that owns the resources 
+            (the trusting account-B) and the account that contain user that need to access the resources
+             (the trusted account).
+
+ 
+* To delegate permission to access a resource,you create an IAM role that has two
+  policies attached.
+          1)Trust policy.
+          2)permission policy. 
+
+*Identity federation :
+          If your user already have a way to be authenticated such as authentication through
+          your corporate network. 
+
+*federated user and role:
+       -federated user dont have permanent identities in your aws account
+        the way that iam user do. 
+
+*Single-sign on:
+         An authentication method that enables users to secuarly authenticate with 
+         multiple applications and websites by using just one set of credentials.  
+
+*IAM temporary credentials :
+   1)temporary credentials are shot term credentials that are generated to grant access to
+     aws resources for a limited period.
+  
+  2)These credentials are used to provide secure,temporary access without the need for long term 
+    access key or passwords.
+
+  3)Temporary credentials are primarily used with IAM roles ,but there are also other uses.
+
+  4)A benefit of temporarly credentials is that they expire automatically after a set period 
+    of time.  
+         
+*service control policy :
+        Service Control Policies (SCPs) in AWS Identity and Access Management (IAM) are a crucial feature of AWS Organizations that help you manage and enforce policies for AWS accounts within your organization. SCPs allow you to centrally control the maximum available permissions for accounts in your organization or organizational units (OUs).
+
+
+                  
+                    
+         
+       
+         
