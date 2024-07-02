@@ -1,0 +1,47 @@
+....AWS API GATEWAY.....
+
+*Amazon api gateway is serverless and a fully manages service that make it easy for developers to create,maintain,monitor,and secure APIs at any scale.
+
+-serverless and fully managed service 
+-support
+   -RestFul API
+   -WebSocket application.
+
+*1 million API calls received free per month within first year of free tier account.   
+
+*AWS API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Here are the key aspects of AWS API Gateway in detail:
+
+1)API Creation and Deployment:
+
+API Types: API Gateway supports RESTful APIs and WebSocket APIs, allowing you to create HTTP endpoints for accessing backend services or real-time communication channels, respectively.
+Integration with Backend Services: You can integrate APIs with a variety of backend services including AWS Lambda functions, Amazon ECS containers, Amazon EC2 instances, or any HTTP endpoint.
+
+2)API Management:
+Versioning: Allows you to manage different versions of your APIs to support backward compatibility or updates.
+Deployment Stages: You can deploy APIs to different stages (e.g., development, test, production) to control access and monitor usage separately for each stage.
+Monitoring: Provides detailed CloudWatch metrics and logs for monitoring API usage, performance metrics, and errors.
+
+3)Security:
+Authentication and Authorization: Supports various methods for controlling access to APIs, including AWS IAM permissions, Amazon Cognito user pools, and custom authorizers.
+HTTPS: Automatically supports HTTPS endpoints to ensure secure communication between clients and APIs.
+
+4)Scalability and Performance:
+Auto-scaling: API Gateway automatically scales to handle the load of incoming API requests.
+Caching: Allows you to enable caching at different levels (endpoint or stage) to improve API latency and reduce backend load.
+
+5)Integration with Other AWS Services:
+AWS Lambda Integration: Easily connects API Gateway endpoints to AWS Lambda functions, allowing you to build serverless applications.
+Integration with AWS Services: Supports integration with other AWS services like AWS Step Functions for workflow orchestration, AWS SNS for notifications, etc.
+
+6)Customization and Extensibility:
+Request and Response Transformations: Allows you to modify request and response payloads using mapping templates to fit specific backend requirements.
+Custom Domain Names: Supports custom domain names for APIs, enabling branded endpoints (e.g., api.example.com).
+
+7)Developer Experience:
+API Documentation: Automatically generates API documentation with Swagger/OpenAPI definitions, making it easier for developers to understand and consume your APIs.
+SDK Generation: Provides SDKs for multiple programming languages to help developers quickly integrate with your APIs.
+
+8)Cost Management:
+Pay-as-You-Go Pricing: API Gateway charges based on the number of API calls received and the amount of data transferred, allowing cost-effective scaling based on usage.
+
+
