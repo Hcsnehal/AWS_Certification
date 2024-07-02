@@ -1,0 +1,472 @@
+.......lambda questions.....
+
+1)Which of the following services are not supported by AWS Lambda? (choose 1)
+
+EC2
+S3
+Alexa
+CloudFront
+RedShift
+
+ans:EC2
+explanation:To a certain extent, lambda and EC2 are competing technologies. While lambda aims to remove or drastically reduce the amount of configuration needed to run your software, EC2 exposes the developer to the virtual machine that ultimately runs their code. In addition lambda scales effortlessly while EC2 requires more complex configuration to achieve the same result.
+
+2)You are using lambda (with large ram allocations) to process videos uploaded to S3 and to convert from their video format to H264. However the operation fails when dealing with particularly large video files. What is the cause of this?
+
+The default 5 minute time out
+Lambda does not allow video encoding
+S3 transfer bottlenecks
+S3 cannot talk to Lambda
+
+ans:A
+
+3)Of the following, which are handled by Lambda by default? (choose 2)
+Please select 2 correct answers
+
+Automatic scaling
+Security patches
+The lambda functions code
+Triggers that activate the function
+
+ans:A,B
+
+4)As lambda executes functions in the cloud and not traditionally on a VM. You are limited as to what code you can run within lambda. Is this statement true?
+
+True
+False
+ans:B
+Lambda does not enforce any restrictions on your function logic – if you can code for it, you can run it within a Lambda function. As part of your function, you may need to call other APIs, or access other AWS services like databases.
+
+5)Can lambda functions access within Dedicated Tenancy VPCs?
+No
+Yes
+ans:A)
+
+6)Which of the following languages are NOT supported by AWS Lambda? (choose 2)
+Please select 2 correct answers
+
+C++
+Java
+C#
+Pascal
+Python
+Node.js      ans:A,D
+
+7)Building an application that relies on Lambda can be highly beneficial to your organisation, however logging can prove tricky when tracking functions that in turn call other functions. What tools are available in AWS to help this? (choose 3)
+Please select 3 correct answers
+
+Amazon CloudWatch
+AWS X-Ray
+Logging AWS Lambda API Calls with AWS CloudTrail
+AWS Incognito
+ans:A,B,C
+
+8)When was AWS Lambda first made available for general production use?
+April - 2015
+November - 2014
+April - 2016
+April - 2017   ans:A
+
+9)Of the list below, pick 2 which lambda reads events from.
+Please select 2 correct answers
+
+Amazon Cognito
+Amazon Alexa
+Amazon Kinesis
+Amazon DynamoDB
+Amazon API Gateway
+Amazon Kinesis Data Firehose
+ans:C,D
+
+10)Of the list below, chose 3 which can call Lambda functions asynchronously.
+Please select 3 correct answers
+
+Amazon API Gateway
+Amazon Cognito
+Amazon Kinesis Data Firehose
+Amazon Simple Email Service
+Amazon CloudWatch Events
+Amazon DynamoDB   ans:A,B,C
+
+11)Which of the following is true about AWS Lambda?
+
+A) It requires manual scaling.
+B) It automatically scales based on the number of incoming requests.
+C) It runs on a dedicated server.
+D) It requires a virtual machine to run.  ans:B
+
+12)What is the maximum execution duration per request in AWS Lambda?
+
+A) 30 seconds
+B) 15 minutes
+C) 5 minutes
+D) 60 minutes  ans:B
+
+13)Which languages are natively supported by AWS Lambda?
+
+A) Python, JavaScript, Ruby
+B) Python, JavaScript, PHP
+C) Python, Java, C#
+D) Python, Java, Swift  ans:a,c
+
+14)How can you deploy a Lambda function from your local machine?
+
+A) Using the AWS Management Console
+B) Using the AWS CLI
+C) Using AWS CloudFormation
+D) All of the above
+ans:D
+
+15)What service can you use to automatically retry a failed Lambda function?
+
+A) AWS Step Functions
+B) AWS SNS
+C) AWS SQS
+D) AWS SES  ans:A
+
+16)What are the main components of a Lambda function?
+
+A) Code and execution role
+B) Code, execution role, and environment variables
+C) Code, execution role, environment variables, and VPC configuration
+D) Code and environment variables   ans:A
+
+17)Which AWS service can invoke a Lambda function asynchronously?
+
+A) Amazon S3
+B) AWS DynamoDB
+C) AWS API Gateway
+D) All of the above
+
+ans:A
+
+18)Which of the following can trigger an AWS Lambda function?
+
+A) AWS CloudWatch Events
+B) Amazon S3
+C) Amazon Kinesis
+D) All of the above
+ans:D
+
+19)What is the purpose of the AWS Lambda execution role?
+
+A) To define the permissions for accessing AWS resources.
+B) To define the memory allocation for the function.
+C) To define the runtime environment for the function.
+D) To define the timeout for the function.  Ans:A
+
+20)How can you increase the performance of your Lambda function?
+
+A) Increase the memory allocation
+B) Use a higher timeout setting
+C) Use a larger execution role
+D) Use a higher runtime environment
+Ans:A)
+
+21)Which service can you use to build, test, and deploy AWS Lambda functions?
+
+A) AWS CloudFormation
+B) AWS CodePipeline
+C) AWS CodeBuild
+D) AWS CodeDeploy
+Ans:B
+
+22)What is the maximum memory allocation for a Lambda function?
+
+A) 1 GB
+B) 3 GB
+C) 5 GB
+D) 10 GB   ans:D
+
+23)Which AWS service can you use to schedule an AWS Lambda function?
+
+A) AWS CloudTrail
+B) AWS CloudWatch Events
+C) AWS SQS
+D) AWS SNS     ans:B
+
+24)How can you handle errors in a Lambda function?
+
+A) Use try/catch blocks in the code
+B) Use AWS CloudWatch Logs to monitor errors
+C) Use AWS X-Ray to trace errors
+D) All of the above   ans:D
+
+25)What is the maximum size of deployment package for AWS Lambda?
+
+A) 50 MB
+B) 100 MB
+C) 250 MB
+D) 500 MB
+
+ans:C
+
+26)Which of the following is true about VPC configurations for Lambda functions?
+
+A) Lambda functions can be deployed in a VPC.
+B) Lambda functions cannot access resources in a VPC.
+C) Lambda functions must be deployed in a public subnet.
+D) Lambda functions do not support VPC configurations.  ans:A
+
+27)What is the AWS Lambda Layers feature?
+
+A) A way to deploy multiple versions of a Lambda function
+B) A way to manage dependencies separately from your code
+C) A way to split a Lambda function into multiple functions
+D) A way to configure environment variables  ans:B
+
+28)How can you pass environment variables to a Lambda function?
+
+A) Through the AWS Management Console
+B) Through the AWS CLI
+C) Through AWS CloudFormation
+D) All of the above   ans:D
+
+29)What is the purpose of the AWS Lambda function URL feature?
+
+A) To trigger the function via a HTTP(S) request
+B) To expose the function as an API
+C) To enable access to the function through a custom domain
+D) All of the above
+ans:A
+
+30)Which AWS service can you use to create a RESTful API that triggers Lambda functions?
+
+A) Amazon RDS
+B) Amazon API Gateway
+C) Amazon S3
+D) Amazon DynamoDB  
+ans:B
+
+31)How do you secure AWS Lambda functions?
+
+A) Use IAM roles and policies
+B) Use VPC configurations
+C) Use environment variables for sensitive data
+D) All of the above  
+ans:D
+
+32)What is the default timeout setting for AWS Lambda functions?
+
+A) 1 second
+B) 3 seconds
+C) 5 seconds
+D) 15 seconds
+ans:B
+
+33)What is the maximum timeout setting for AWS Lambda functions?
+ ans  15 min
+
+34)Which of the following AWS services can directly trigger a Lambda function?
+
+A) Amazon RDS
+B) Amazon EC2
+C) Amazon S3
+D) Amazon Redshift 
+ans:C
+
+35)How can you monitor AWS Lambda function invocations?
+
+A) AWS CloudWatch Logs
+B) AWS CloudTrail
+C) AWS Config
+D) AWS X-Ray
+ans:A
+
+36)What is AWS Lambda@Edge?
+
+A) A service that allows Lambda functions to be executed at AWS edge locations
+B) A service that allows Lambda functions to be executed on AWS EC2 instances
+C) A service that allows Lambda functions to be executed on AWS IoT devices
+D) A service that allows Lambda functions to be executed on AWS on-premises devices
+
+ans:A
+
+37)What is the benefit of using AWS Lambda with Amazon DynamoDB Streams?
+
+A) Real-time processing of database changes
+B) Better performance for database queries
+C) Lower cost for database storage
+D) Improved security for database access 
+Ans:A
+
+38)How do you version AWS Lambda functions?
+
+A) By creating aliases
+B) By using tags
+C) By creating new versions
+D) By using environment variables
+ans:A
+
+39)What is the purpose of AWS Lambda aliases?
+
+A) To create multiple versions of a function
+B) To create pointers to specific versions of a function
+C) To create different runtime environments for a function
+D) To create different memory allocations for a function
+Ans:B
+
+40)How can you deploy Lambda functions using AWS CloudFormation?
+
+A) By using the AWS::Lambda::Function resource
+B) By using the AWS::Lambda::Deployment resource
+C) By using the AWS::Lambda::Alias resource
+D) By using the AWS::Lambda::Version resource
+ANs:A
+
+41)What is the purpose of AWS Lambda Layers?
+
+A) To manage dependencies separately from your code
+B) To create multiple versions of a function
+C) To create different runtime environments for a function
+D) To create different memory allocations for a function
+Ans:A
+
+42)What is the best practice for managing secrets in AWS Lambda?
+
+A) Storing them in environment variables
+B) Storing them in the code
+C) Using AWS Secrets Manager
+D) Using AWS Systems Manager Parameter Store
+Ans:C,D
+
+43)How can you test an AWS Lambda function locally?
+
+A) Using the AWS Management Console
+B) Using the AWS CLI
+C) Using the AWS SAM CLI
+D) Using AWS CloudFormation
+Ans:C
+
+44)Which AWS service can be used to deploy serverless applications?
+
+A) AWS CodeDeploy
+B) AWS CloudFormation
+C) AWS Elastic Beanstalk
+D) AWS SAM (Serverless Application Model)
+ANS:D
+
+45)What is the AWS Lambda execution role?
+
+A) A role that allows Lambda functions to access AWS resources
+B) A role that defines the memory allocation for Lambda functions
+C) A role that defines the timeout setting for Lambda functions
+D) A role that defines the runtime environment for Lambda functions
+ANS:A
+
+46)What is the maximum payload size for an AWS Lambda invocation?
+
+A) 128 KB
+B) 256 KB
+C) 512 KB
+D) 1 MB
+ANS:B
+The maximum payload size for an AWS Lambda invocation is 6 MB for synchronous invocations and 256 KB for asynchronous invocations. So, the correct answer to your question would be:
+B) 256 KB
+
+47)How can you control access to your AWS Lambda function?
+
+A) By using IAM roles and policies
+B) By using VPC configurations
+C) By using environment variables
+D) By using AWS CloudFormation
+Ans:A
+
+48)What is the AWS Lambda concurrency limit?
+
+A) The maximum number of function instances that can run simultaneously
+B) The maximum number of function invocations per second
+C) The maximum number of function aliases that can be created
+D) The maximum number of function versions that can be created
+Ans:A
+
+49)How can you optimize the performance of your AWS Lambda function?
+
+A) By increasing the memory allocation
+B) By using a higher timeout setting
+C) By using environment variables
+D) By using AWS X-Ray
+ANs:A)
+
+50)Which of the following is a valid use case for AWS Lambda?
+
+A) Real-time file processing
+B) Backend processing for mobile applications
+C) Real-time stream processing
+D) All of the above
+Ans:D
+
+51)What is the purpose of the AWS Lambda invocation type?
+
+A) To define how the function is invoked
+B) To define the memory allocation for the function
+C) To define the timeout setting for the function
+D) To define the runtime environment for the function
+Ans:A
+
+52)How can you update an existing AWS Lambda function?
+
+A) By using the AWS Management Console
+B) By using the AWS CLI
+C) By using AWS CloudFormation
+D) All of the above
+Ans:D
+
+53)What is the AWS Lambda execution context?
+
+A) The environment in which the function code runs
+B) The IAM role that defines the permissions for the function
+C) The memory allocation for the function
+D) The timeout setting for the function
+Ans:A
+
+54)How can you ensure high availability for your AWS Lambda function?
+
+A) By deploying the function in multiple regions
+B) By using a higher memory allocation
+C) By using environment variables
+D) By using AWS X-Ray
+Ans:A
+
+55)Which of the following is true about AWS Lambda pricing?
+
+A) You are charged based on the number of function invocations.
+B) You are charged based on the memory allocation.
+C) You are charged based on the execution duration.
+D) All of the above
+Ans:D
+AWS Lambda pricing is based on the number of function invocations, memory allocation, and execution duration. The search results mention that you are charged based on the number of requests for your functions and the time your code executes. Additionally, the duration is calculated from the time your code begins executing until it returns or otherwise terminates, rounded up to the nearest 1ms, and the price depends on the amount of memory you allocate to your function.
+
+
+56)What is the purpose of the AWS Lambda DLQ (Dead Letter Queue)?
+
+A) To handle failed function invocations
+B) To store function logs
+C) To manage function dependencies
+D) To store function environment variables
+Ans:A
+According to the search results, a Dead Letter Queue (DLQ) is used to capture and store unprocessed events from asynchronous invocations for further analysis or reprocessing. When a Lambda function execution fails, AWS Lambda can retry the execution. However, if the retry attempts fail, Lambda discards the event. To avoid this, a DLQ can be configured to capture the event and its payload for later analysis or reprocessing. This helps to prevent event loss, improve visibility into failures, and reduce the need for manual intervention in such scenarios.
+
+57)How can you manage Lambda function versions?
+
+A) By using the AWS Management Console
+B) By using the AWS CLI
+C) By using AWS CloudFormation
+D) All of the above
+Ans:D
+
+58)What is the purpose of the AWS Lambda runtime environment?
+
+A) To define the language and version used by the function
+B) To define the memory allocation for the function
+C) To define the timeout setting for the function
+D) To define the execution role for the function
+Ans:A
+
+59)Which of the following can be used to monitor and troubleshoot AWS Lambda functions?
+
+A) AWS CloudWatch Logs
+B) AWS CloudTrail
+C) AWS X-Ray
+D) All of the above
+Ans:D
